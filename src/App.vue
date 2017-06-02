@@ -12,7 +12,7 @@
 
           <v-list-tile value="true" router :to="item.to">
             <v-list-tile-action>
-              <v-icon light v-html="item.icon"></v-icon>
+              <v-icon light v-html="item.icon" class=""></v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title v-text="item.title"></v-list-tile-title>
@@ -29,16 +29,17 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
     </v-toolbar>
     <main>
-      <v-container fluid>
+      <router-view></router-view>
+
+<!--       <v-container fluid>
         <v-slide-y-transition mode="out-in">
-          <!-- contents -->
           <router-view></router-view>
         </v-slide-y-transition>
-      </v-container>
+      </v-container> -->
     </main>
-    <v-footer>
+<!--     <v-footer>
       <span>&copy; 2017 jacoyutorius</span>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
@@ -48,10 +49,13 @@
       return {
         drawer: true,
         items: [
-          { icon: "bubble_chart", to: "/",  title: "Main"},
-          { icon: 'bubble_chart', to: "about", title: 'About' },
-          { icon: 'bubble_chart', to: "items", title: 'Items' },
-          { icon: 'bubble_chart', to: "order", title: 'Order' },
+          { icon: "home", to: "/",  title: "Home"},
+          { icon: 'account_circle', to: "about", title: 'About' },
+          { icon: 'shop', to: "items", title: 'Items' },
+          // { icon: 'subject', to: "item_detail", title: 'ItemDetail' },
+          { icon: 'shopping_cart', to: "order", title: 'Order' },
+          { icon: 'exit_to_app', to: "logout", title: 'Logout' },
+          { icon: 'exit_to_app', to: "login", title: 'Login' },
         ],
         title: 'Vue ShoppingCart'
       }

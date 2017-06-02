@@ -5,9 +5,10 @@ import Router from 'vue-router'
 
 // components
 import Login from './components/Login.vue'
-import Main from './components/Main.vue'
+import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Items from './components/Items.vue'
+import ItemDetail from './components/ItemDetail.vue'
 import Order from './components/Order.vue'
 
 Vue.use(Vuetify)
@@ -22,8 +23,8 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Main
+      name: 'Home',
+      component: Home
     },
     {
     	path: "/login",
@@ -41,6 +42,11 @@ const router = new Router({
     	component: Items
     },
     {
+      path: "/item/:id",
+      name: "ItemDetail",
+      component: ItemDetail
+    },
+    {
     	path: "/order",
     	name: "Order",
     	component: Order
@@ -55,10 +61,5 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-
-// new Vue({
-//   el: '#app',
-//   render: h => h(App)
-// })
 
 
