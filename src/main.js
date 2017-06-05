@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Vuetify from 'vuetify'
 import Router from 'vue-router'
+import auth from './auth'
 
 // components
 import Login from './components/Login.vue'
@@ -17,6 +18,18 @@ Vue.use(Vuetify)
 Vue.config.productionTip = false
 Vue.use(Router)
 
+
+function requireAuth (to, from, next) {
+  if (!auth.loggedIn()) {
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    })
+  } else {
+    next()
+  }
+}
+
 const router = new Router({
   mode: 'history',
   base: __dirname,
@@ -24,33 +37,46 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
-    },
-    {
-    	path: "/login",
-    	name: "Login",
-    	component: Login
+      component: Home,
+      beforeEnter: requireAuth
     },
     {
     	path: "/about",
     	name: "About",
-    	component: About
+    	component: About,
+      beforeEnter: requireAuth
     },
     {
     	path: "/items",
     	name: "Items",
-    	component: Items
+    	component: Items,
+      beforeEnter: requireAuth
     },
     {
       path: "/item/:id",
       name: "ItemDetail",
-      component: ItemDetail
+      component: ItemDetail,
+      beforeEnter: requireAuth
     },
     {
     	path: "/order",
     	name: "Order",
-    	component: Order
+    	component: Order,
+      beforeEnter: requireAuth
     },
+    {
+      path: "/login",
+      name: "Login",
+      component: Login
+    },
+    {
+      path: "/logout",
+      name: "Logout",
+      beforeEnter (to, from, next) {
+        auth.logout()
+        next('/login')
+      }
+    }
   ]
 })
 
