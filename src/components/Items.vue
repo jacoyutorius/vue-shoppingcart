@@ -36,7 +36,7 @@
 		data(){
 			return {
 				items: [
-					{no: "2991093", name: "袋に入ったドヤ顔猫", price: 10200, image_path: "/static/doc-images/cards/cat_in_bag.JPG" },
+					{no: "2991093", name: "袋に入った猫", price: 10200, image_path: "/static/doc-images/cards/cat_in_bag.JPG" },
 					{no: "5191093", name: "MacBookProと机", price: 99000, image_path: "/static/doc-images/cards/54.JPG" },
 					{no: "2191081", name: "大須演芸場　その１", price: 99000, image_path: "/static/doc-images/cards/IMG_2944.JPG" },
           {no: "2191093", name: "大須演芸場　その２", price: 99000, image_path: "/static/doc-images/cards/IMG_2947.JPG" },
