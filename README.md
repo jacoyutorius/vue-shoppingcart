@@ -1,6 +1,8 @@
 # vue-shoppingcart
 
-> A Vue.js project
+mobile app mockup by Vue + Vuetify
+
+![https://github.com/jacoyutorius/vue-shoppingcart/blob/master/cart.gif?raw=true](https://github.com/jacoyutorius/vue-shoppingcart/blob/master/cart.gif?raw=true)
 
 ## Build Setup
 
